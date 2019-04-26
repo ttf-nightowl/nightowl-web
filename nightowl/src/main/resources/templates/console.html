@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Getting Started: Serving Web Content</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<table>
+		<tr th:each="venue: ${venues}">
+			<td th:text="${venue.id}" />
+			<td th:text="${venue.name}" />
+			<td th:text="${venue.description}" />
+			<td th:text="${venue.latitude}" />
+			<td th:text="${venue.longitude}" />
+			<td th:text="${venue.type}" />
+		</tr>
+	</table>
+</body>
+</html>

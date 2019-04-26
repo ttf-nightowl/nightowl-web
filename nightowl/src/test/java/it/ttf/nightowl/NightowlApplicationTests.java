@@ -1,4 +1,4 @@
-package com.example.demo;
+package it.ttf.nightowl;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

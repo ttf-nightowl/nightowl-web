@@ -1,19 +1,44 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Getting Started: Serving Web Content</title>
+<title>Night Owl: Console</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
+	<form action="#" th:action="@{/console}" th:object="${venue}"
+		method="post">
+		<p>
+			Name: <input type="text" th:field="*{name}" />
+		</p>
+		<p>
+			Description: <input type="text" th:field="*{description}" />
+		</p>
+		<p>
+			Latitude: <input type="text" th:field="*{latitude}" />
+		</p>
+		<p>
+			Longitude: <input type="text" th:field="*{longitude}" />
+		</p>
+		<p>
+			Type: <select th:field="*{type}">
+				<option th:each="type : ${T(it.ttf.nightowl.VenueType).values()}"
+					th:value="${type}" th:text="${type}"></option>
+			</select>
+		</p>
+		<p>
+			<input type="submit" value="Submit" /> <input type="reset"
+				value="Reset" />
+		</p>
+	</form>
 	<table>
-		<tr th:each="venue: ${venues}">
-			<td th:text="${venue.id}" />
-			<td th:text="${venue.name}" />
-			<td th:text="${venue.description}" />
-			<td th:text="${venue.latitude}" />
-			<td th:text="${venue.longitude}" />
-			<td th:text="${venue.type}" />
-		</tr>
+			<tr th:each="venue : ${venues}">
+				<td th:text="${venue.id}" />
+				<td th:text="${venue.name}" />
+				<td th:text="${venue.description}" />
+				<td th:text="${venue.latitude}" />
+				<td th:text="${venue.longitude}" />
+				<td th:text="${venue.type}" />
+			</tr>
 	</table>
 </body>
 </html>

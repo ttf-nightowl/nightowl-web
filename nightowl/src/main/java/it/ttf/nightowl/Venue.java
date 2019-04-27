@@ -78,4 +78,10 @@ public class Venue {
 		this.type = type;
 	}
 
+	@Override
+	public String toString() {
+		return "Venue [id=" + id + ", name=" + name + ", description=" + description + ", latitude=" + latitude
+				+ ", longitude=" + longitude + ", type=" + type + "]";
+	}
+
 }

@@ -1,0 +1,112 @@
+USE nightowl;
+
+CREATE TABLE venue (
+  id int(11) NOT NULL,
+  name varchar(255) default NULL,
+  description varchar(255) default NULL,
+  latitude double,
+  longitude double,
+  type varchar(255) default NULL,
+  PRIMARY KEY (id)
+);
+
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Non Sapien Molestie Company","Lorem ipsum dolor sit amet, consectetuer","44.96704","-119.83369","NIGHTCLUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Mi Foundation","Lorem ipsum dolor sit amet, consectetuer adipiscing","-78.62724","-83.52241","NIGHTCLUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Orci Ut Industries","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur","-89.65884","65.68551","NIGHTCLUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Adipiscing Elit Inc.","Lorem ipsum dolor","44.73686","80.30435","NIGHTCLUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Quis Tristique Company","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","35.18136","-0.63533","NIGHTCLUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Urna Associates","Lorem","-29.98112","-33.79655","NIGHTCLUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Vitae Velit Egestas LLP","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","-18.23369","9.6513","NIGHTCLUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Velit Cras Lorem Ltd","Lorem ipsum dolor sit amet, consectetuer","30.26029","111.92992","NIGHTCLUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Mauris Nulla Integer Ltd","Lorem","-67.43657","-37.54135","NIGHTCLUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Tortor At Risus Consulting","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","44.74233","-169.49981","NIGHTCLUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Felis Orci Consulting","Lorem ipsum dolor sit amet, consectetuer","-70.90185","130.50055","BAR");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Magna Phasellus Incorporated","Lorem ipsum dolor sit amet, consectetuer adipiscing","-40.35658","-96.49956","BAR");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Mauris Foundation","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur","1.89222","-21.9871","BAR");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Neque Corporation","Lorem ipsum dolor sit amet, consectetuer adipiscing elit.","27.1064","129.90494","BAR");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Lectus Ante Dictum Consulting","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","-20.77895","170.93527","BAR");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Sollicitudin A Malesuada Limited","Lorem","-42.32396","35.73262","BAR");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Et Ipsum Cursus Incorporated","Lorem ipsum dolor sit amet, consectetuer adipiscing elit.","-77.04382","30.61123","BAR");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Luctus Vulputate Nisi Institute","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur","-66.30047","139.98569","BAR");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Faucibus Ltd","Lorem ipsum dolor sit","69.7377","21.71993","BAR");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Et Netus Et Corp.","Lorem","66.93832","85.04944","BAR");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Tellus Aenean Limited","Lorem ipsum dolor sit amet, consectetuer adipiscing","54.28653","160.22314","PUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Dui PC","Lorem ipsum dolor sit amet,","-36.2747","127.59291","PUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Sed Turpis Industries","Lorem ipsum dolor sit amet, consectetuer adipiscing","49.42968","-102.59212","PUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Sed Pede Company","Lorem ipsum dolor sit amet, consectetuer adipiscing","83.12212","-19.23833","PUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Porttitor Eros Limited","Lorem ipsum dolor sit amet, consectetuer","39.83666","-150.59042","PUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Cum Foundation","Lorem ipsum dolor","8.96069","92.58611","PUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Sapien Nunc Pulvinar Institute","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","-88.05995","174.96336","PUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Pede Nunc Sed LLP","Lorem ipsum dolor","64.59661","-63.40323","PUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Pellentesque Tincidunt Tempus Limited","Lorem ipsum dolor sit amet, consectetuer adipiscing elit.","-1.948","94.87113","PUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Velit Dui Incorporated","Lorem ipsum dolor","34.73386","-28.52859","PUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Commodo Corporation","Lorem ipsum dolor sit","-86.37013","-7.63933","TAVERN");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Elit Pellentesque Consulting","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","-87.12519","119.69658","TAVERN");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Et Malesuada Consulting","Lorem ipsum","1.75741","-139.39002","TAVERN");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Ut Inc.","Lorem ipsum dolor","-39.17891","-112.92357","TAVERN");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Lacinia At Iaculis LLP","Lorem ipsum dolor sit amet, consectetuer adipiscing elit.","11.07056","-131.78833","TAVERN");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Duis At Lacus Inc.","Lorem ipsum dolor sit amet,","27.62599","33.60663","TAVERN");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("In Incorporated","Lorem ipsum dolor sit","69.67367","142.17062","TAVERN");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Quam Pellentesque Habitant Inc.","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur","32.73993","-63.65643","TAVERN");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Sollicitudin Adipiscing Ligula Inc.","Lorem ipsum dolor sit amet,","-20.49405","-11.7185","TAVERN");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Lobortis Quam A Corporation","Lorem ipsum dolor sit amet,","-52.66291","86.43665","TAVERN");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Massa Mauris Associates","Lorem ipsum dolor sit amet, consectetuer adipiscing elit.","32.16095","118.11301","NIGHTCLUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Tellus Consulting","Lorem ipsum dolor sit","72.49645","41.26344","NIGHTCLUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Pharetra Felis Eget Industries","Lorem ipsum dolor sit","72.94702","54.6522","NIGHTCLUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Cum Sociis Foundation","Lorem ipsum dolor sit amet, consectetuer adipiscing elit.","22.42412","-21.02047","NIGHTCLUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Varius Ltd","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","-46.23908","-142.2192","NIGHTCLUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Parturient Montes Nascetur Company","Lorem ipsum dolor sit amet,","53.91623","-114.06624","NIGHTCLUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Tempor Diam Consulting","Lorem ipsum dolor sit","-51.19544","-108.66189","NIGHTCLUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Dolor Donec Foundation","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur","9.87727","-69.45308","NIGHTCLUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Neque Tellus Limited","Lorem ipsum dolor sit amet,","49.0092","-116.08698","NIGHTCLUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Non Company","Lorem ipsum dolor sit amet, consectetuer adipiscing","2.01101","-176.51689","NIGHTCLUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Feugiat Tellus LLC","Lorem","31.16263","107.77643","BAR");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Magna Company","Lorem","-68.38835","177.97955","BAR");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Pretium Corporation","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur","80.59606","144.41873","BAR");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Eget Varius Company","Lorem ipsum dolor sit amet, consectetuer adipiscing elit.","50.6127","123.73353","BAR");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Nec Limited","Lorem ipsum dolor sit amet,","-31.52256","173.86064","BAR");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Egestas LLC","Lorem","-10.29281","-64.77408","BAR");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Amet Industries","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur","54.7877","-114.513","BAR");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Fermentum Metus Aenean LLP","Lorem ipsum dolor","-64.08318","3.22659","BAR");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Orci In Associates","Lorem ipsum dolor sit amet, consectetuer adipiscing elit.","-29.03877","123.68713","BAR");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Sed Consequat Auctor LLP","Lorem ipsum dolor sit","12.39271","162.98394","BAR");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Lorem Vitae Odio LLP","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","87.25633","-143.04992","PUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Consectetuer Adipiscing Elit Consulting","Lorem ipsum dolor sit amet, consectetuer adipiscing elit.","67.3877","32.65067","PUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("A Sollicitudin Orci Company","Lorem ipsum dolor sit amet,","-37.10598","-65.5443","PUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Varius Et Associates","Lorem ipsum dolor sit","78.93656","7.30502","PUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Nascetur Ridiculus Company","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","87.36968","-76.40981","PUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Cras Eu Tellus Ltd","Lorem ipsum dolor sit amet, consectetuer adipiscing","16.65096","61.59102","PUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Sapien Molestie Orci Company","Lorem ipsum dolor sit amet, consectetuer adipiscing","-42.82161","116.66622","PUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Nullam Suscipit Est Inc.","Lorem ipsum dolor","5.55904","9.63421","PUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Eget Associates","Lorem ipsum dolor sit amet,","-67.80765","-127.15441","PUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Justo Nec Ante Consulting","Lorem ipsum dolor sit amet,","33.84612","131.34866","PUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Vitae Mauris Corporation","Lorem ipsum dolor sit amet,","-44.25556","-103.06915","TAVERN");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Neque Limited","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","55.48612","129.04317","TAVERN");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Eu Metus In Institute","Lorem ipsum dolor sit amet, consectetuer adipiscing","-68.41389","-132.04417","TAVERN");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Proin Vel Arcu Institute","Lorem ipsum dolor sit amet, consectetuer adipiscing elit.","89.10387","27.27657","TAVERN");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Justo Eu Industries","Lorem","-75.68286","47.81443","TAVERN");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Sed Nec Metus Consulting","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","-48.02237","-154.15852","TAVERN");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Hendrerit A Industries","Lorem ipsum","-5.11759","-11.62284","TAVERN");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Morbi Quis Urna Institute","Lorem ipsum dolor","-32.0522","106.43544","TAVERN");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Sed Ltd","Lorem ipsum dolor sit","68.27026","31.57107","TAVERN");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Tellus Eu Corp.","Lorem ipsum dolor","85.87604","-91.04599","TAVERN");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Hendrerit Corp.","Lorem ipsum dolor","69.42346","44.37874","NIGHTCLUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Class Incorporated","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","-8.93946","38.48334","NIGHTCLUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Lacus Limited","Lorem ipsum dolor sit amet, consectetuer","-7.70628","19.36747","NIGHTCLUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Lorem Sit Amet Limited","Lorem","17.55025","-167.64022","NIGHTCLUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Eget Limited","Lorem ipsum dolor","37.50181","-67.91112","NIGHTCLUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Ut Erat Sed Limited","Lorem ipsum dolor sit amet, consectetuer adipiscing elit.","-71.74662","16.52003","NIGHTCLUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Luctus Lobortis Foundation","Lorem ipsum","86.28784","32.42436","NIGHTCLUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Ut Nulla Foundation","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","13.97416","-24.42166","NIGHTCLUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Tellus Aenean Egestas Industries","Lorem ipsum dolor sit amet, consectetuer adipiscing","81.54238","-136.54304","NIGHTCLUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Quis Pede Praesent Limited","Lorem ipsum dolor","5.3162","-167.57165","NIGHTCLUB");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Gravida Mauris Ut LLP","Lorem ipsum dolor sit amet, consectetuer adipiscing","35.89516","-179.18355","BAR");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Consectetuer Adipiscing Foundation","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur","-47.98699","-101.3824","BAR");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Sagittis Felis Corporation","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur","55.92111","-24.42546","BAR");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Et Magnis Dis Ltd","Lorem ipsum dolor sit amet,","-88.50023","-89.77416","BAR");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Pede Company","Lorem ipsum dolor","-83.06246","103.41078","BAR");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Eu Company","Lorem ipsum","58.447","-100.24078","BAR");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Mauris Ltd","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur","-36.53343","-2.77638","BAR");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Leo Morbi LLP","Lorem ipsum dolor","31.97154","-29.40742","BAR");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Placerat Eget Corporation","Lorem ipsum","54.53573","92.91915","BAR");
+INSERT INTO venue (name,description,latitude,longitude,type) VALUES ("Tortor Inc.","Lorem ipsum dolor sit amet, consectetuer adipiscing","-29.80871","-80.75067","BAR");

@@ -1,10 +1,12 @@
 package it.ttf.nightowl;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -14,15 +16,18 @@ public class ConsoleController {
 	private VenueRepository venueRepository;
 
 	@GetMapping("/console")
-	public String console(Model model) {
+	public String showConsole(Model model) {
 		model.addAttribute("venue", new Venue()).addAttribute("venues", venueRepository.findAll());
 		return "console";
 	}
 
 	@PostMapping("/console")
-	public void addVenue(@ModelAttribute Venue venue, Model model) {
+	public String addVenue(@Valid Venue venue, Errors errors) {
+		if (errors.hasErrors()) {
+			return "console";
+		}
 		venueRepository.save(venue);
-		console(model);
+		return "redirect:/console";
 	}
 
 }

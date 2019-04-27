@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class VenueFinder {
 
-	public final static double AVERAGE_RADIUS_OF_EARTH_KM = 6371;
+	private final static double AVERAGE_RADIUS_OF_EARTH_KM = 6371;
 
 	@Autowired
 	private VenueRepository venueRepository;
@@ -34,15 +34,15 @@ public class VenueFinder {
 	}
 
 	// get distance from user coordinates to venue (haversine formula)
-	public int getDistanceInKm(double userLat, double userLng, Venue venue) {
+	private int getDistanceInKm(double userLat, double userLng, Venue venue) {
 		double venueLat = venue.getLatitude();
 		double venueLng = venue.getLongitude();
 
 		double latDistance = Math.toRadians(userLat - venueLat);
 		double lngDistance = Math.toRadians(userLng - venueLng);
 
-		double a = Math.sin(latDistance / 2) * Math.sin(latDistance / 2) + Math.cos(Math.toRadians(userLat))
-				* Math.cos(Math.toRadians(venueLat)) * Math.sin(lngDistance / 2) * Math.sin(lngDistance / 2);
+		double a = Math.sin(latDistance / 2) * Math.sin(latDistance / 2)
+				+ Math.cos(Math.toRadians(userLat)) * Math.cos(Math.toRadians(venueLat)) * Math.sin(lngDistance / 2) * Math.sin(lngDistance / 2);
 
 		double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 

@@ -1,8 +1,5 @@
 package it.ttf.nightowl;
 
 public enum VenueType {
-	NIGHTCLUB,
-	BAR,
-	PUB,
-	TAVERN
+	NIGHTCLUB, BAR, PUB, TAVERN
 }

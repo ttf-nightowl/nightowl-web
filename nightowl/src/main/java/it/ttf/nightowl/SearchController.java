@@ -12,10 +12,10 @@ public class SearchController {
 
 	@Autowired
 	private VenueFinder venueFinder;
-	
+
 	@GetMapping("/search")
-	public List<Venue> search(@RequestParam(value="latitude") double latitude, @RequestParam(value="longitude") double longitude) {
+	public List<Venue> search(@RequestParam(value = "latitude") double latitude, @RequestParam(value = "longitude") double longitude) {
 		return venueFinder.find(latitude, longitude);
 	}
-	
+
 }

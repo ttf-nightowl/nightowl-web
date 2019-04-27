@@ -5,40 +5,43 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-	<form action="#" th:action="@{/console}" th:object="${venue}"
-		method="post">
-		<p>
-			Name: <input type="text" th:field="*{name}" />
-		</p>
-		<p>
-			Description: <input type="text" th:field="*{description}" />
-		</p>
-		<p>
-			Latitude: <input type="text" th:field="*{latitude}" />
-		</p>
-		<p>
-			Longitude: <input type="text" th:field="*{longitude}" />
-		</p>
-		<p>
-			Type: <select th:field="*{type}">
-				<option th:each="type : ${T(it.ttf.nightowl.VenueType).values()}"
-					th:value="${type}" th:text="${type}"></option>
+	<form method="post" th:object="${venue}">
+		<div>
+			<label for="name">Name</label>
+			<input type="text" required th:field="*{name}" />
+			<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span> <!-- redundant with client-side validation -->
+		</div>
+		<div>
+			<label for="description">Description</label>
+			<input type="text" th:field="*{description}" />
+		</div>
+		<div>
+			<label for="latitude">Latitude</label>
+			<input type="number" min="-90" max="90" step="any" th:field="*{latitude}" />
+			<span th:if="${#fields.hasErrors('latitude')}" th:errors="*{latitude}"></span> <!-- redundant with client-side validation -->
+		</div>
+		<div>
+			<label for="longitude">Longitude</label>
+			<input type="number" min="-180" max="180" step="any" th:field="*{longitude}" />
+			<span th:if="${#fields.hasErrors('longitude')}" th:errors="*{longitude}"></span> <!-- redundant with client-side validation -->
+		</div>
+		<div>
+			<label for="type">Type</label> <select th:field="*{type}">
+				<option th:each="type : ${T(it.ttf.nightowl.VenueType).values()}" th:value="${type}" th:text="${type}"></option>
 			</select>
-		</p>
-		<p>
-			<input type="submit" value="Submit" /> <input type="reset"
-				value="Reset" />
-		</p>
+		</div>
+		<input type="submit" value="Add" /> <input type="reset" value="Reset" />
 	</form>
+
 	<table>
-			<tr th:each="venue : ${venues}">
-				<td th:text="${venue.id}" />
-				<td th:text="${venue.name}" />
-				<td th:text="${venue.description}" />
-				<td th:text="${venue.latitude}" />
-				<td th:text="${venue.longitude}" />
-				<td th:text="${venue.type}" />
-			</tr>
+		<tr th:each="venue : ${venues}">
+			<td th:text="${venue.id}" />
+			<td th:text="${venue.name}" />
+			<td th:text="${venue.description}" />
+			<td th:text="${venue.latitude}" />
+			<td th:text="${venue.longitude}" />
+			<td th:text="${venue.type}" />
+		</tr>
 	</table>
 </body>
 </html>

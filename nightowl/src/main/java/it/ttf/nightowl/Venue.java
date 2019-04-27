@@ -6,6 +6,9 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Venue {
@@ -13,15 +16,21 @@ public class Venue {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	@NotBlank
 	private String name;
 	private String description;
+	@Min(-90)
+	@Max(90)
 	private double latitude;
+	@Min(-180)
+	@Max(180)
 	private double longitude;
 	@Enumerated(EnumType.STRING)
 	private VenueType type;
 
-	public Venue () {}
-	
+	public Venue() {
+	}
+
 	public Venue(String name, String description, double latitude, double longitude, VenueType type) {
 		this.name = name;
 		this.description = description;

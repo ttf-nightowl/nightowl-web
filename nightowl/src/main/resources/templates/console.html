@@ -2,38 +2,52 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>Night Owl: Console</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
+	<form method="post" th:action="@{/logout}">
+		<input type="submit" value="Logout">
+	</form>
+
+	<h1>Add venue</h1>
 	<form method="post" th:object="${venue}">
-		<div>
-			<label for="name">Name</label>
-			<input type="text" required th:field="*{name}" />
-			<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span> <!-- redundant with client-side validation -->
-		</div>
-		<div>
-			<label for="description">Description</label>
-			<input type="text" th:field="*{description}" />
-		</div>
-		<div>
-			<label for="latitude">Latitude</label>
-			<input type="number" min="-90" max="90" step="any" th:field="*{latitude}" />
-			<span th:if="${#fields.hasErrors('latitude')}" th:errors="*{latitude}"></span> <!-- redundant with client-side validation -->
-		</div>
-		<div>
-			<label for="longitude">Longitude</label>
-			<input type="number" min="-180" max="180" step="any" th:field="*{longitude}" />
-			<span th:if="${#fields.hasErrors('longitude')}" th:errors="*{longitude}"></span> <!-- redundant with client-side validation -->
-		</div>
-		<div>
-			<label for="type">Type</label> <select th:field="*{type}">
-				<option th:each="type : ${T(it.ttf.nightowl.VenueType).values()}" th:value="${type}" th:text="${type}"></option>
-			</select>
-		</div>
+		<label for="name">Name</label>
+		<input type="text" required th:field="*{name}" />
+		<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span> <!-- redundant with client-side validation -->
+		<br/>
+		
+		<label for="description">Description</label>
+		<input type="text" th:field="*{description}" />
+		<br/>
+
+		<label for="latitude">Latitude</label>
+		<input type="number" min="-90" max="90" step="any" th:field="*{latitude}" />
+		<span th:if="${#fields.hasErrors('latitude')}" th:errors="*{latitude}"></span> <!-- redundant with client-side validation -->
+		<br/>
+	
+		<label for="longitude">Longitude</label>
+		<input type="number" min="-180" max="180" step="any" th:field="*{longitude}" />
+		<span th:if="${#fields.hasErrors('longitude')}" th:errors="*{longitude}"></span> <!-- redundant with client-side validation -->
+		<br/>
+
+		<label for="type">Type</label>
+		<select th:field="*{type}">
+			<option th:each="type : ${T(it.ttf.nightowl.model.VenueType).values()}" th:value="${type}" th:text="${type}"></option>
+		</select>
+		<br/>
+	
 		<input type="submit" value="Add" /> <input type="reset" value="Reset" />
 	</form>
 
+	<h1>Browse venues</h1>
 	<table>
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>Description</th>
+			<th>Latitude</th>
+			<th>Longitude</th>
+			<th>Type</th>
+		</tr>
 		<tr th:each="venue : ${venues}">
 			<td th:text="${venue.id}" />
 			<td th:text="${venue.name}" />

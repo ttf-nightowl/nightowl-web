@@ -1,4 +1,4 @@
-package it.ttf.nightowl;
+package it.ttf.nightowl.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,9 +6,12 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+import it.ttf.nightowl.dao.VenueRepository;
+import it.ttf.nightowl.model.Venue;
+
+@Service
 public class VenueFinder {
 
 	private final static double AVERAGE_RADIUS_OF_EARTH_KM = 6371;

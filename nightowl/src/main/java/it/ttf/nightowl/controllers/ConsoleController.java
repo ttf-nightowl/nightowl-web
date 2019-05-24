@@ -1,4 +1,4 @@
-package it.ttf.nightowl;
+package it.ttf.nightowl.controllers;
 
 import javax.validation.Valid;
 
@@ -9,6 +9,9 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import it.ttf.nightowl.dao.VenueRepository;
+import it.ttf.nightowl.model.Venue;
+
 @Controller
 public class ConsoleController {
 
@@ -17,7 +20,8 @@ public class ConsoleController {
 
 	@GetMapping("/console")
 	public String showConsole(Model model) {
-		model.addAttribute("venue", new Venue()).addAttribute("venues", venueRepository.findAll());
+		model.addAttribute("venue", new Venue());
+		model.addAttribute("venues", venueRepository.findAll());
 		return "console";
 	}
 

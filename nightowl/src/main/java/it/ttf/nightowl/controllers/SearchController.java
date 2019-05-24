@@ -1,4 +1,4 @@
-package it.ttf.nightowl;
+package it.ttf.nightowl.controllers;
 
 import java.util.List;
 
@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import it.ttf.nightowl.model.Venue;
+import it.ttf.nightowl.service.VenueFinder;
 
 @RestController
 public class SearchController {

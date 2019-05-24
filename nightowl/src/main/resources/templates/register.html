@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Night Owl: Register</title>
+</head>
+<body>
+	<h1>Register</h1>
+	<form method="POST" th:action="@{/register}" th:object="${registrationData}">
+		<p th:if="${error}" th:text="${error}"/>
+	
+		<label for="name">Name: </label>
+		<input type="text" required th:field="*{name}"/>
+		<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span> <!-- redundant with client-side validation -->
+		<br/>
+		
+		<label for="surname">Surname: </label>
+		<input type="text" required th:field="*{surname}"/>
+		<span th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></span> <!-- redundant with client-side validation -->
+		<br/>
+		
+		<label for="username">Username: </label>
+		<input type="text" required th:field="*{username}"/>
+		<span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span> <!-- redundant with client-side validation -->
+		<br/>
+		
+		<label for="password">Password: </label>
+		<input type="password" required minlength="8" th:field="*{password}"/>
+		<span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span> <!-- redundant with client-side validation -->
+		<br/>
+		
+		<label for="confirmPassword">Confirm password: </label>
+		<input type="password" required th:field="*{confirmPassword}"/>
+		<br/>
+		
+		<input type="submit" value="Register"/>
+	</form>
+</body>
+</html>

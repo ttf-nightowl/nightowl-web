@@ -9,8 +9,8 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import it.ttf.nightowl.dao.VenueRepository;
 import it.ttf.nightowl.model.Venue;
+import it.ttf.nightowl.repositories.VenueRepository;
 
 @Controller
 public class ConsoleController {

@@ -1,4 +1,4 @@
-package it.ttf.nightowl.dao;
+package it.ttf.nightowl.repositories;
 
 import org.springframework.data.repository.CrudRepository;
 

@@ -1,61 +1,104 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<title>Night Owl: Console</title>
-</head>
-<body>
-	<form method="post" th:action="@{/logout}">
-		<input type="submit" value="Logout">
-	</form>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<h1>Add venue</h1>
-	<form method="post" th:object="${venue}">
-		<label for="name">Name</label>
-		<input type="text" required th:field="*{name}" />
-		<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span> <!-- redundant with client-side validation -->
-		<br/>
-		
-		<label for="description">Description</label>
-		<input type="text" th:field="*{description}" />
-		<br/>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-		<label for="latitude">Latitude</label>
-		<input type="number" min="-90" max="90" step="any" th:field="*{latitude}" />
-		<span th:if="${#fields.hasErrors('latitude')}" th:errors="*{latitude}"></span> <!-- redundant with client-side validation -->
-		<br/>
-	
-		<label for="longitude">Longitude</label>
-		<input type="number" min="-180" max="180" step="any" th:field="*{longitude}" />
-		<span th:if="${#fields.hasErrors('longitude')}" th:errors="*{longitude}"></span> <!-- redundant with client-side validation -->
-		<br/>
+        <title>Night Owl: Console</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #00152a;">
+            <a class="navbar-brand" th:href="@{/}">
+                <img th:src="@{/images/owl-sm.png}" width="30" height="30" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/}">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" th:href="@{/console}">Add new venues</a>
+                    </li>
+                </ul>
+                <form method="post" th:action="@{/logout}">
+                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Logout</button>
+                </form>
+            </div>
+        </nav>
 
-		<label for="type">Type</label>
-		<select th:field="*{type}">
-			<option th:each="type : ${T(it.ttf.nightowl.model.VenueType).values()}" th:value="${type}" th:text="${type}"></option>
-		</select>
-		<br/>
-	
-		<input type="submit" value="Add" /> <input type="reset" value="Reset" />
-	</form>
+        <div class="container-fluid">
+            <div class="row mt-4">
+                <div class="col">
+                    <h2>Add venue</h2>
+                    <form method="post" th:action="@{/console}" th:object="${venue}">
 
-	<h1>Browse venues</h1>
-	<table>
-		<tr>
-			<th>Id</th>
-			<th>Name</th>
-			<th>Description</th>
-			<th>Latitude</th>
-			<th>Longitude</th>
-			<th>Type</th>
-		</tr>
-		<tr th:each="venue : ${venues}">
-			<td th:text="${venue.id}" />
-			<td th:text="${venue.name}" />
-			<td th:text="${venue.description}" />
-			<td th:text="${venue.latitude}" />
-			<td th:text="${venue.longitude}" />
-			<td th:text="${venue.type}" />
-		</tr>
-	</table>
-</body>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" th:classappend="${#fields.hasErrors('name')} ? is-invalid" id="name" th:field="*{name}"/>
+                            <div class="invalid-feedback" th:errors="*{name}"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea class="form-control" id="description" rows="3" th:field="*{description}" />
+                        </div>
+                        <div class="form-group">
+                            <label for="latitude">Latitude</label>
+                            <input type="text" class="form-control" th:classappend="${#fields.hasErrors('latitude')} ? is-invalid" id="latitude" th:field="*{latitude}" />
+                            <div class="invalid-feedback" th:errors="*{latitude}"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="longitude">Longitude</label>
+                            <input type="text" class="form-control" th:classappend="${#fields.hasErrors('longitude')} ? is-invalid" id="longitude" th:field="*{longitude}" />
+                            <div class="invalid-feedback" th:errors="*{longitude}"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="type">Type</label>
+                            <select class="form-control" id="type" th:field="*{type}">
+                                <option th:each="type : ${T(it.ttf.nightowl.model.VenueType).values()}" th:value="${type}" th:text="${type}"></option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="reset" class="btn btn-primary">Reset</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col">
+                    <h2>Browse venues</h2>
+                    <table class="table">
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Latitude</th>
+                            <th>Longitude</th>
+                            <th>Type</th>
+                        </tr>
+                        <tr th:each="venue : ${venues}">
+                            <td th:text="${venue.id}" />
+                            <td th:text="${venue.name}" />
+                            <td th:text="${venue.description}" />
+                            <td th:text="${venue.latitude}" />
+                            <td th:text="${venue.longitude}" />
+                            <td th:text="${venue.type}" />
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
 </html>

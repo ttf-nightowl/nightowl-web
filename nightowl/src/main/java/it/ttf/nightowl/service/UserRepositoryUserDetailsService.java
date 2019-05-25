@@ -6,8 +6,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import it.ttf.nightowl.dao.UserRepository;
 import it.ttf.nightowl.model.User;
+import it.ttf.nightowl.repositories.UserRepository;
 
 @Service
 public class UserRepositoryUserDetailsService implements UserDetailsService {

@@ -1,38 +1,76 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<title>Night Owl: Register</title>
-</head>
-<body>
-	<h1>Register</h1>
-	<form method="POST" th:action="@{/register}" th:object="${registrationData}">
-		<p th:if="${error}" th:text="${error}"/>
-	
-		<label for="name">Name: </label>
-		<input type="text" required th:field="*{name}"/>
-		<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span> <!-- redundant with client-side validation -->
-		<br/>
-		
-		<label for="surname">Surname: </label>
-		<input type="text" required th:field="*{surname}"/>
-		<span th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></span> <!-- redundant with client-side validation -->
-		<br/>
-		
-		<label for="username">Username: </label>
-		<input type="text" required th:field="*{username}"/>
-		<span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span> <!-- redundant with client-side validation -->
-		<br/>
-		
-		<label for="password">Password: </label>
-		<input type="password" required minlength="8" th:field="*{password}"/>
-		<span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span> <!-- redundant with client-side validation -->
-		<br/>
-		
-		<label for="confirmPassword">Confirm password: </label>
-		<input type="password" required th:field="*{confirmPassword}"/>
-		<br/>
-		
-		<input type="submit" value="Register"/>
-	</form>
-</body>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <title>Night Owl: Register</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #00152a;">
+            <a class="navbar-brand" th:href="@{/}">
+                <img th:src="@{/images/owl-sm.png}" width="30" height="30" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/}">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/console}">Add new venues</a>
+                    </li>
+                </ul>
+                <a class="btn btn-outline-light my-2 my-sm-0" th:href="@{/login}">Login</a>
+            </div>
+        </nav>
+
+        <div class="container-fluid">
+            <div class="row mt-4">
+                <div class="col">
+                    <h2>Register</h2>
+                    <form method="POST" th:action="@{/register}" th:object="${registrationData}">
+                        <p style="color: red;" th:if="${error}" th:text="${error}"/>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" th:classappend="${#fields.hasErrors('name')} ? is-invalid" id="name" th:field="*{name}"/>
+                            <div class="invalid-feedback" th:errors="*{name}"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="surname">Surname</label>
+                            <input type="text" class="form-control" th:classappend="${#fields.hasErrors('surname')} ? is-invalid" id="surname" th:field="*{surname}"/>
+                            <div class="invalid-feedback" th:errors="*{surname}"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" th:classappend="${#fields.hasErrors('username')} ? is-invalid" id="username" th:field="*{username}"/>
+                            <div class="invalid-feedback" th:errors="*{username}"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" th:classappend="${#fields.hasErrors('password')} ? is-invalid" id="password" th:field="*{password}"/>
+                            <div class="invalid-feedback" th:errors="*{password}"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="passwordConfirmation">Confirm password</label>
+                            <input type="password" class="form-control" id="passwordConfirmation" th:field="*{passwordConfirmation}"/>
+                        </div>                        
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
 </html>

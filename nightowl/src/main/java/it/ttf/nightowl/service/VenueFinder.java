@@ -8,8 +8,8 @@ import java.util.TreeMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import it.ttf.nightowl.dao.VenueRepository;
 import it.ttf.nightowl.model.Venue;
+import it.ttf.nightowl.repositories.VenueRepository;
 
 @Service
 public class VenueFinder {

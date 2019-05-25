@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import it.ttf.nightowl.dao.UserRepository;
 import it.ttf.nightowl.model.RegistrationData;
+import it.ttf.nightowl.repositories.UserRepository;
 
 @Controller
 @RequestMapping("/register")
@@ -46,7 +46,7 @@ public class RegistrationController {
 		}
 		
 		// check for matching passwords
-		if (!registrationData.getPassword().equals(registrationData.getConfirmPassword())) {
+		if (!registrationData.getPassword().equals(registrationData.getPasswordConfirmation())) {
 			model.addAttribute("error", PASSWORD_ERROR_MESSAGE);
 			return "register";
 		}

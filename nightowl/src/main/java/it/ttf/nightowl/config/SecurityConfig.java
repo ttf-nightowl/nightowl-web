@@ -36,6 +36,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .authorizeRequests()
                 .antMatchers("/console")
                 	.authenticated()
+                .antMatchers("/login", "/register")
+                	.anonymous()
                 .and()
             .formLogin()
             	.loginPage("/login")

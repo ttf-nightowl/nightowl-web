@@ -1,4 +1,4 @@
-package it.ttf.nightowl.controllers;
+package it.ttf.nightowl.controllers.rest;
 
 import java.util.List;
 

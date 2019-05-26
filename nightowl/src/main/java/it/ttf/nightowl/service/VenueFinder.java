@@ -32,8 +32,12 @@ public class VenueFinder {
 		// extract ordered list of venues
 		List<Venue> list = new ArrayList<Venue>(map.values());
 
-		// return first ten venues
-		return list.subList(0, 10);
+		// return first ten venues (or all venues if there's less than ten)
+		if (list.size() >= 10) {
+			return list.subList(0, 10);
+		} else {
+			return list.subList(0, list.size());
+		}
 	}
 
 	// get distance from user coordinates to venue (haversine formula)

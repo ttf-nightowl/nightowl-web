@@ -10,10 +10,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
-import lombok.Data;
-
 @Entity
-@Data
 public class Venue {
 
 	@Id
@@ -30,5 +27,53 @@ public class Venue {
 	private double longitude;
 	@Enumerated(EnumType.STRING)
 	private VenueType type;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public double getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(double latitude) {
+		this.latitude = latitude;
+	}
+
+	public double getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(double longitude) {
+		this.longitude = longitude;
+	}
+
+	public VenueType getType() {
+		return type;
+	}
+
+	public void setType(VenueType type) {
+		this.type = type;
+	}
 
 }
